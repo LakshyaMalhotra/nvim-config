@@ -23,7 +23,7 @@ return {
       -- ensure these language parsers are installed
       ensure_installed = {
         "json",
-        "yaml",
+        -- "yaml",
         "html",
         "css",
         "markdown",
@@ -43,12 +43,12 @@ return {
         "regex",
         "r",
         "make",
-        "latex",
+        -- "latex",
         "git_config",
         "make",
         "cmake",
         "cpp",
-        "cuda"
+        "cuda",
       },
       incremental_selection = {
         enable = true,
