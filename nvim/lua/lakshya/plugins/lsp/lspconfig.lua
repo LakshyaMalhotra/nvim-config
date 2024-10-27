@@ -1,4 +1,4 @@
-return {
+return{
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
@@ -48,10 +48,10 @@ return {
         keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
 
         opts.desc = "Show buffer diagnostics"
-        keymap.set("n", "<leader>bD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+        keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
         opts.desc = "Show line diagnostics"
-        keymap.set("n", "<leader>bd", vim.diagnostic.open_float, opts) -- show diagnostics for line
+        keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
         opts.desc = "Go to previous diagnostic"
         keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
@@ -66,6 +66,7 @@ return {
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
       end,
     })
+
 
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -86,23 +87,23 @@ return {
         })
       end,
       ["pyright"] = function()
-        -- configure pyright
+      -- configure pyright
         lspconfig["pyright"].setup({
           capabilities = capabilities,
           single_file_support = true,
           settings = {
-            pyright = {
-              autoImportCompletion = true,
-            },
-            python = {
-              analysis = {
-                autoSearchPaths = true,
-                diagnosticMode = "openFilesOnly",
-                useLibraryCodeForTypes = true,
-                typeCheckingMode = "basic",
-              },
-            },
-          },
+		        pyright = {
+			        autoImportCompletion = true,
+		        },
+		        python = {
+			        analysis = {
+				        autoSearchPaths = true,
+				        diagnosticMode = "openFilesOnly",
+				        useLibraryCodeForTypes = true,
+				        typeCheckingMode = "basic"
+			        }
+		        }
+	        },
         })
       end,
       ["lua_ls"] = function()
