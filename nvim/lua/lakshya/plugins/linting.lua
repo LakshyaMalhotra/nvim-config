@@ -8,8 +8,10 @@ return {
       python = { "flake8" },
     }
 
-    local flake8_ns = lint.get_namespace("flake8")
-    vim.diagnostic.config({ "--config", "~/.flake8" }, flake8_ns)
+    lint.linters.flake8.args = {
+      "--config",
+      "~/.flake8",
+    }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
