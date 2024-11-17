@@ -8,20 +8,29 @@ return {
     -- configure lualine with modified theme
     lualine.setup({
       options = {
-        theme = "kanagawa-paper",
+        theme = "catppuccin",
       },
       sections = {
+        lualine_b = {
+          { "branch", icon = "" },
+        },
         lualine_x = {
-          -- {
-          --   lazy_status.updates,
-          --  cond = lazy_status.has_updates,
-          --  color = { fg = "#ff9e64" },
-          -- },
-          --          { "encoding" },
-          { "fileformat" },
+          -- { "fileformat" },
           { "filetype" },
         },
       },
     })
   end,
 }
+-- mode = "",
+--    git_branch = "",
+--    error = " ",
+--    warn = " ",
+--    info = " ",
+--    hint = " ",
+--    added = " ",
+--    modified = "󰝤 ",
+--    modified_simple = "~ ",
+--    removed = " ",
+--    lock = "",
+--    touched = "●"
